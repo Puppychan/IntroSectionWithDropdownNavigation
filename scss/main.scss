@@ -1,0 +1,76 @@
+@use "variables.scss" as var;
+@use "mixins.scss" as mi;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html {
+    font-family: 'Epilogue', sans-serif;
+}
+.body {
+    background-color: var.$almost-white;
+    &-header {
+        @include mi.flex(2em);
+        align-items: center;
+        padding: 2em 1em;
+        &-nav {
+            @include mi.flex(1em);
+            &-element, &-feature, &-company {
+                @include mi.text-style(var.$medium-gray, var.$step--2,500);
+            }
+            &-element {
+                @include mi.hover-state(var.$almost-black);
+            }
+            &-feature, &-company {
+                @include mi.flex-col(0.1em);
+                @include mi.hover-state(var.$almost-black, div p, div svg path);
+                // position: relative;
+
+                &-svg {
+                    // center
+                    margin-top: auto;
+                    margin-bottom: auto;
+                    
+                    transform: scale(1.1);
+                    overflow: visible;
+                }
+                &-subnav {
+                    // position: absolute;
+
+                    &[class*="feature"] {
+                        right: 0;
+                        left: -6em;
+                    }
+                    &[class*="company"] {
+                        left: 0;
+                        right: -2em;
+                    }
+
+                    @include mi.flex-col(1em);
+                    flex-direction: column-reverse;
+
+                    padding: 1.2em 1.4em;
+                    font-size: var.$step--3;
+
+                    background-color: white;
+                    box-shadow: 4px 5px 13px 2px var.$medium-gray;
+                    border-radius: 15px;
+                    &-li {
+                        
+                        list-style-type: none;
+                    }
+
+                    &.hide {
+                        display: none;
+                    }
+                }
+            }
+        }
+        &-buttons {
+            margin-left: auto;
+            @include mi.button-style("&-login");
+            @include mi.button-style("&-register", var.$almost-black, transparent, "yes"); 
+        }
+    }
+}

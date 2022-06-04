@@ -1,0 +1,111 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Epilogue", sans-serif;
+}
+
+.body {
+  background-color: hsl(0deg, 0%, 98%);
+}
+.body-header {
+  display: flex;
+  flex-direction: row;
+  gap: 2em;
+  align-items: center;
+  padding: 2em 1em;
+}
+.body-header-nav {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+.body-header-nav-element, .body-header-nav-feature, .body-header-nav-company {
+  color: hsl(0deg, 0%, 41%);
+  font-size: clamp(0.91rem, 0.75rem + 0.68vw, 1.6rem);
+  font-weight: 500;
+  text-decoration: none;
+}
+.body-header-nav-element:hover {
+  color: hsl(0deg, 0%, 8%);
+}
+.body-header-nav-feature, .body-header-nav-company {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1em;
+}
+.body-header-nav-feature:hover div p, .body-header-nav-company:hover div p {
+  color: hsl(0deg, 0%, 8%);
+}
+.body-header-nav-feature:hover div svg path, .body-header-nav-company:hover div svg path {
+  stroke: hsl(0deg, 0%, 8%);
+  transition: transform 200ms;
+  transform: rotate(-180deg);
+  transform-origin: center;
+}
+.body-header-nav-feature-svg, .body-header-nav-company-svg {
+  margin-top: auto;
+  margin-bottom: auto;
+  transform: scale(1.1);
+  overflow: visible;
+}
+.body-header-nav-feature-subnav, .body-header-nav-company-subnav {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  flex-direction: column-reverse;
+  padding: 1.2em 1.4em;
+  font-size: clamp(0.76rem, 0.64rem + 0.51vw, 1.28rem);
+  background-color: white;
+  box-shadow: 4px 5px 13px 2px hsl(0deg, 0%, 41%);
+  border-radius: 15px;
+}
+.body-header-nav-feature-subnav[class*=feature], .body-header-nav-company-subnav[class*=feature] {
+  right: 0;
+  left: -6em;
+}
+.body-header-nav-feature-subnav[class*=company], .body-header-nav-company-subnav[class*=company] {
+  left: 0;
+  right: -2em;
+}
+.body-header-nav-feature-subnav-li, .body-header-nav-company-subnav-li {
+  list-style-type: none;
+}
+.body-header-nav-feature-subnav.hide, .body-header-nav-company-subnav.hide {
+  display: none;
+}
+.body-header-buttons {
+  margin-left: auto;
+}
+.body-header-buttons-login {
+  color: hsl(0deg, 0%, 8%);
+  background-color: transparent;
+  border: 2px hsl(0deg, 0%, 8%) solid;
+  border-color: transparent;
+  border-radius: 15px;
+  padding: 2em;
+}
+.body-header-buttons-login:hover {
+  cursor: pointer;
+  background-color: hsl(0deg, 0%, 41%);
+  color: hsl(0deg, 0%, 98%);
+  border: hsl(0deg, 0%, 41%);
+}
+.body-header-buttons-register {
+  color: hsl(0deg, 0%, 8%);
+  background-color: transparent;
+  border: 2px hsl(0deg, 0%, 8%) solid;
+  border-radius: 15px;
+  padding: 2em;
+}
+.body-header-buttons-register:hover {
+  cursor: pointer;
+  background-color: hsl(0deg, 0%, 41%);
+  color: hsl(0deg, 0%, 98%);
+  border: hsl(0deg, 0%, 41%);
+}
+
+/*# sourceMappingURL=main.css.map */

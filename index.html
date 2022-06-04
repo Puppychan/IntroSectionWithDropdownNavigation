@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Intro section with dropdown navigation</title>
+  <link rel="stylesheet" href="./css/main.css">
+  <!-- font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&display=swap" rel="stylesheet">
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body class="body">
+  <header class="body-header">
+    <img src="./images/logo.svg" alt="Logo Icon" class="body-header-logo">
+    <nav class="body-header-nav">
+      <a href="#" class="body-header-nav-feature">
+        <div class="body-header-nav-feature-name">        <p>Features</p>
+            <svg width="10" height="6" viewbox="0 0 10 6" class="body-header-nav-feature-name-svg">
+              <path stroke="#686868" stroke-width="2.3" fill="white" d="m1 5 4-4 4 4"/>
+          </svg></div>
+        <ul class="body-header-nav-feature-subnav hide">
+          <li onclick="location.href='#'" class="body-header-nav-feature-subnav-li body-header-nav-feature-subnav-plan">
+            <img src="./images/icon-planning.svg" alt="Planning Icon">
+            Planning
+          </li>
+          <li onclick="location.href='#'" class="body-header-nav-feature-subnav-li body-header-nav-feature-subnav-calendar">
+            <img src="./images/icon-reminders.svg" alt="Reminder Icon">
+            Reminders
+          </li>
+          <li onclick="location.href='#'" class="body-header-nav-feature-subnav-li body-header-nav-feature-subnav-calendar">
+            <img src="./images/icon-calendar.svg" alt="Calendar Icon">
+            Calendar
+          </li>
+          <li onclick="location.href='#'" class="body-header-nav-feature-subnav-li body-header-nav-feature-subnav-todo">
+            <img src="./images/icon-todo.svg" alt="Todo icon">
+            Todo List
+          </li>
+        </ul>
+      </a>
+      <a href="#" class="body-header-nav-company">
+        <div class="body-header-nav-company-name">
+          <p>Company</p>
+          <svg width="10" height="6" viewbox="0 0 10 6" class="body-header-nav-company-name-svg">
+            <path stroke="#686868" stroke-width="2.3" fill="white" d="m1 5 4-4 4 4"/>
+          </svg>
+        </div>
+        <ul class="body-header-nav-company-subnav hide">
+          <li onclick="location.href='#'" class="body-header-nav-company-subnav-li body-header-nav-company-subnav-history">History</li>
+          <li onclick="location.href='#'" class="body-header-nav-company-subnav-li body-header-nav-company-subnav-team">Our Team</li>
+          <li onclick="location.href='#'" class="body-header-nav-company-subnav-li body-header-nav-company-subnav-blog">Blog</li>
+        </ul>
+      </a>
+      <a href="#" class="body-header-nav-element">Careers</a>
+      <a href="#" class="body-header-nav-element">About</a>
+    </nav>
+    <div class="body-header-buttons">
+      <button class="body-header-buttons-login">Login</button>
+      <button class="body-header-buttons-register">Register</button>
+    </div>
+  </header>
+
+  <!-- Make remote work
+
+  Get your team in sync, no matter your location. Streamline processes, 
+  create team rituals, and watch productivity soar.
+
+  Learn more -->
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+  <script src="./js/script.js"></script>
+</body>
+</html>
