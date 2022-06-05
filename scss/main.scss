@@ -81,8 +81,11 @@ html {
                             padding-right: 1em;
                         }
                     }
-                    &.hide {
-                        display: none;
+                    &-wrap {
+                        display: block;
+                        &.hide {
+                            display: none;
+                        }
                     }
                 }
                 @include mi.hover-state(var.$almost-black, p, svg path);
@@ -102,24 +105,62 @@ html {
 @media screen and (min-width: 1440px){
     .body {
         &-header {
-            position: relative;
+            justify-content: flex-start;
+            gap: 3em;
             &-menu {
                 display: none;
             }
             &-nav {
+                overflow: visible;
                 &-wrap {
-                    // position: relative;
-                    top: 0;
-                    left: 0;
-                    bottom: 0;
+                    position: relative;
+                    flex-grow: 1;
                     display: flex;
+                    background-color: transparent;
                 }
+                gap: 2em;
+                width: 100%;
                 flex-direction: row;
                 padding: 2em 0;
+                &-feature, &-company {
+                    @include mi.flex-col(2em);
+                    justify-content: center;
+                    position: relative;
+
+                    &-subnav {
+                        &-wrap {
+                            position: absolute;
+                            top: 0;
+                            &[class*="feature"] {
+                                right: 0;
+                                left: -7em;
+                            }
+                            &[class*="company"] {
+                                right: -3em;
+                                left: 0;
+                            }
+                            padding-top: 2em;
+                        }
+                        background-color: white;
+                        padding: 1.3em;
+                        border-radius: 15px;
+                        box-shadow: 7px 10px 10px 10px var.$medium-gray;
+                        &-li {
+                            padding: 0.9em;
+                            font-size: var.$step--3;
+                        }
+                    }
+                }
                 &-element, &-feature, &-company, &-buttons {
-                    // padding: 0;
+                    padding: 0;
+                    align-self: center;
+                }
+                &-buttons {
+                    flex-direction: row;
+                    margin-left: auto;
                 }
             }
+
         }
     }
 }

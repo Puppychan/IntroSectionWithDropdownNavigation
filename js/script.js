@@ -17,7 +17,7 @@ function controlNav() {
 function controlSubNav() {
     nameNav.forEach(name => {
         let navElement = document.querySelector(`.body-header-nav-${name}`);
-        let subNav = document.querySelector(`.body-header-nav-${name}-subnav`);
+        let subNav = document.querySelector(`.body-header-nav-${name}-subnav-wrap`);
         // for hover
         navElement.addEventListener("mouseover", event => subNav.classList.remove("hide"));
         navElement.addEventListener("mouseout", event => subNav.classList.add("hide"));

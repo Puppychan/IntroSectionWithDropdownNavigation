@@ -86,7 +86,10 @@ html {
 .body-header-nav-feature-subnav-li img, .body-header-nav-company-subnav-li img {
   padding-right: 1em;
 }
-.body-header-nav-feature-subnav.hide, .body-header-nav-company-subnav.hide {
+.body-header-nav-feature-subnav-wrap, .body-header-nav-company-subnav-wrap {
+  display: block;
+}
+.body-header-nav-feature-subnav-wrap.hide, .body-header-nav-company-subnav-wrap.hide {
   display: none;
 }
 .body-header-nav-feature:hover p, .body-header-nav-company:hover p {
@@ -138,20 +141,62 @@ html {
 
 @media screen and (min-width: 1440px) {
   .body-header {
-    position: relative;
+    justify-content: flex-start;
+    gap: 3em;
   }
   .body-header-menu {
     display: none;
   }
   .body-header-nav {
+    overflow: visible;
+    gap: 2em;
+    width: 100%;
     flex-direction: row;
     padding: 2em 0;
   }
   .body-header-nav-wrap {
-    top: 0;
-    left: 0;
-    bottom: 0;
+    position: relative;
+    flex-grow: 1;
     display: flex;
+    background-color: transparent;
+  }
+  .body-header-nav-feature, .body-header-nav-company {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    justify-content: center;
+    position: relative;
+  }
+  .body-header-nav-feature-subnav, .body-header-nav-company-subnav {
+    background-color: white;
+    padding: 1.3em;
+    border-radius: 15px;
+    box-shadow: 7px 10px 10px 10px hsl(0deg, 0%, 41%);
+  }
+  .body-header-nav-feature-subnav-wrap, .body-header-nav-company-subnav-wrap {
+    position: absolute;
+    top: 0;
+    padding-top: 2em;
+  }
+  .body-header-nav-feature-subnav-wrap[class*=feature], .body-header-nav-company-subnav-wrap[class*=feature] {
+    right: 0;
+    left: -7em;
+  }
+  .body-header-nav-feature-subnav-wrap[class*=company], .body-header-nav-company-subnav-wrap[class*=company] {
+    right: -3em;
+    left: 0;
+  }
+  .body-header-nav-feature-subnav-li, .body-header-nav-company-subnav-li {
+    padding: 0.9em;
+    font-size: clamp(0.76rem, 0.64rem + 0.51vw, 1.28rem);
+  }
+  .body-header-nav-element, .body-header-nav-feature, .body-header-nav-company, .body-header-nav-buttons {
+    padding: 0;
+    align-self: center;
+  }
+  .body-header-nav-buttons {
+    flex-direction: row;
+    margin-left: auto;
   }
 }
 
