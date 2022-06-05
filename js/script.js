@@ -1,5 +1,5 @@
 let nameNav = ["feature", "company"];
-let navWrap = document.querySelector(".body-header-nav-wrap");
+let navWrap = document.querySelector(".body-header");
 let navContent = document.querySelector(".body-header-nav");
 controlNav();
 controlSubNav();

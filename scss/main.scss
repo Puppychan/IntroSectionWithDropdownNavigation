@@ -14,9 +14,17 @@ html {
     &-header {
         @include mi.flex;
         justify-content: space-between;
-        padding: 2em 1em;
+        align-items: center;
+        background-color: transparent;
+
         position: fixed;
+        left: 0;
+        right: 0;
+        height: var.$nav-height;
+        top: 0;
         z-index: 1;
+
+        padding: 2em 1em;
         &::after {
             content: " ";
             position: absolute;
@@ -24,7 +32,19 @@ html {
             right: 0;
             left: 0;
             bottom: 0;
-            background-color: red;
+            z-index: -1;
+            display: none;
+        }
+        &.open {
+            height: 100%;
+            align-items: flex-start;
+            &::after {
+                display: block;
+                background-color: rgba(24, 21, 52, 0.5);
+            }
+            .body-header-nav {
+                display: flex;
+            }
         }
         &-logo {
             width: clamp(5em, 8%, 9em);
@@ -41,26 +61,14 @@ html {
         &-nav {
             width: 70%;
             overflow: scroll;
-            // wrapper of nav
-            &-wrap {
-                // wrapper of nav
-
-                
-                display: none;
-                
-                background-color: rgba(24, 21, 52, 0.5);
-                // opacity: 0;
-                // transition: opacity 2s ease-in-out;
-                &.open {
-                    display: flex;
-                    // opacity: 1;
-                }   
-            }
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
 
             @include mi.flex-col(1em);
             padding: 5em 0;
-            // transform: scale(0);
-            // transition: transform 2s ease-in-out;
+            display: none;
 
             background-color: var.$almost-white;
             @include mi.hover-state(var.$almost-black, "&-element");
@@ -101,50 +109,90 @@ html {
                 @include mi.button-style("&-login");
                 @include mi.button-style("&-register", var.$medium-gray, "yes");
             }
-            // &-wrap.open & {
-            //     transform: scale(0.7);
-            // }
         }
     }
 
     // main
     &-main {
+        margin-top: var.$nav-height;
+        width: 100%;
         display: grid;
         grid-template: 
         "img img img img" auto
-        "tit tit tit tit"
-        "desc desc desc desc"
-        ". btn btn ."
-        "br1 br2 br3 br4";
-        gap: 3em;
-        justify-content: center;
+        ". tit tit ." auto
+        "desc desc desc desc" auto
+        ". btn btn ." auto
+        "br1 br2 br3 br4" auto;
+        justify-content: space-between;
         align-items: center;
+        row-gap: 1.5em;
+        
         &-illus {
-            background: url("../images/image-hero-mobile.png") center / cover no-repeat;
+            background: url("../images/image-hero-mobile.png") top center / cover no-repeat;
             width: 100%;
-            height: 35em;
+            // height: 35em;
+            height: 17em;
             grid-area: img;
+            margin-bottom: 2.3em;
         }
         &-title {
             grid-area: tit;
+            @include mi.text-style(var.$almost-black, var.$step-0, 700);
+            text-align: center;
+            justify-self: center;
         }
         &-desc {
             grid-area: desc;
+            justify-self: center;
+            @include mi.text-style(var.$almost-black, var.$step--2, 500);
+            text-align: center;
+
         }
+
         @include mi.button-style("&-button", var.$almost-white, "yes", var.$almost-black);
         &-button {
             grid-area: btn;
-            // width: 60%;
+            // width: 50%;
             width: 100%;
             justify-self: center;
+            padding-top: 0.8em;
+            padding-bottom: 0.8em;
         }
         @for $var from 1 to 5 {
             &-brand:nth-of-type(#{$var}) {
                 grid-area: br#{$var};
                 justify-self: center;
+                width: 50%;
             }
         }
 
+    }
+
+    // footer
+    &-footer {
+        padding: 3em 0;
+        text-align: center;
+        font-size: var.$step--3;
+        & a {
+            font-size: var.$step--2;
+            color:brown;
+            text-decoration: none;
+            &:hover {
+                color:darkblue;
+            }
+        }
+    }
+}
+@media screen and (min-width: 500px){
+    .body {
+        &-main {
+            &-illus {
+                height: 35em;
+            }
+            &-button {
+                width: 60%;
+            }
+        }
     }
 }
 @media screen and (min-width: 1440px){
@@ -157,15 +205,17 @@ html {
             }
             &-nav {
                 overflow: visible;
-                &-wrap {
-                    position: relative;
-                    flex-grow: 1;
-                    display: flex;
-                    background-color: transparent;
-                }
-                gap: 2em;
+                // &-wrap {
+                //     position: relative;
+                //     flex-grow: 1;
+                //     display: flex;
+                //     background-color: transparent;
+                // }
                 width: 100%;
+                position: relative;
+                gap: 2em;
                 flex-direction: row;
+                display: flex;
                 padding: 2em 0;
                 &-feature, &-company {
                     @include mi.flex-col(2em);
@@ -206,6 +256,33 @@ html {
                 }
             }
 
+        }
+        &-main {
+            padding: 5em 10em;
+            grid-template: 
+            "tit tit tit tit . img" auto
+            "desc desc desc . . img" auto
+            "btn btn . . . img" auto
+            "br1 br2 br3 br4 . img" auto/
+            0.8fr 0.8fr 0.8fr 0.8fr 0.2fr 3.4fr;
+            gap: 0;
+            &-illus {
+                margin-bottom: 0;
+                object-fit: contain;
+            }
+            &-title, &-desc {
+                text-align: left;
+                justify-self: left;
+            }
+            &-button {
+                justify-self: left;
+                width: 60%;
+            }
+            @for $var from 1 to 5 {
+                &-brand:nth-of-type(#{$var}) {
+                    width: 60%;
+                }
+            }
         }
     }
 }
