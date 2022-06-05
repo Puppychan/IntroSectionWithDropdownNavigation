@@ -258,7 +258,7 @@ html {
 
         }
         &-main {
-            padding: 5em 10em;
+            padding: 5em 2em;
             grid-template: 
             "tit tit tit tit img" auto
             "desc desc desc . img" auto
@@ -290,6 +290,14 @@ html {
                     width: 70%;
                 }
             }
+        }
+    }
+}
+@media screen and (min-width: 1800px){
+    .body {
+        &-main {
+            padding: 5em 10em;
+
         }
     }
 }
