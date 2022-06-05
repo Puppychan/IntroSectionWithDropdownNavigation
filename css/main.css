@@ -17,6 +17,17 @@ html {
   gap: 0;
   justify-content: space-between;
   padding: 2em 1em;
+  position: fixed;
+  z-index: 1;
+}
+.body-header::after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: red;
 }
 .body-header-logo {
   width: clamp(5em, 8%, 9em);
@@ -39,15 +50,6 @@ html {
   background-color: hsl(0deg, 0%, 98%);
 }
 .body-header-nav-wrap {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  display: flex;
-  flex-direction: row;
-  gap: 0;
-  justify-content: flex-end;
   display: none;
   background-color: rgba(24, 21, 52, 0.5);
 }
@@ -109,7 +111,7 @@ html {
 .body-header-nav-buttons-login {
   color: hsl(0deg, 0%, 41%);
   background-color: transparent;
-  border-radius: 9px;
+  border-radius: 12px;
   padding: 0.5em 1em;
   color: hsl(0deg, 0%, 41%);
   font-size: clamp(0.91rem, 0.75rem + 0.68vw, 1.6rem);
@@ -121,11 +123,12 @@ html {
   cursor: pointer;
   border-color: hsl(0deg, 0%, 8%);
   color: hsl(0deg, 0%, 8%);
+  background-color: transparent;
 }
 .body-header-nav-buttons-register {
   color: hsl(0deg, 0%, 41%);
   background-color: transparent;
-  border-radius: 9px;
+  border-radius: 12px;
   padding: 0.5em 1em;
   color: hsl(0deg, 0%, 41%);
   font-size: clamp(0.91rem, 0.75rem + 0.68vw, 1.6rem);
@@ -137,6 +140,64 @@ html {
   cursor: pointer;
   border-color: hsl(0deg, 0%, 8%);
   color: hsl(0deg, 0%, 8%);
+  background-color: transparent;
+}
+.body-main {
+  display: grid;
+  grid-template: "img img img img" auto "tit tit tit tit" "desc desc desc desc" ". btn btn ." "br1 br2 br3 br4";
+  gap: 3em;
+  justify-content: center;
+  align-items: center;
+}
+.body-main-illus {
+  background: url("../images/image-hero-mobile.png") center/cover no-repeat;
+  width: 100%;
+  height: 35em;
+  grid-area: img;
+}
+.body-main-title {
+  grid-area: tit;
+}
+.body-main-desc {
+  grid-area: desc;
+}
+.body-main-button {
+  color: hsl(0deg, 0%, 98%);
+  background-color: hsl(0deg, 0%, 8%);
+  border-radius: 12px;
+  padding: 0.5em 1em;
+  color: hsl(0deg, 0%, 98%);
+  font-size: clamp(0.91rem, 0.75rem + 0.68vw, 1.6rem);
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px hsl(0deg, 0%, 98%) solid;
+}
+.body-main-button:hover {
+  cursor: pointer;
+  border-color: hsl(0deg, 0%, 8%);
+  color: hsl(0deg, 0%, 8%);
+  background-color: transparent;
+}
+.body-main-button {
+  grid-area: btn;
+  width: 100%;
+  justify-self: center;
+}
+.body-main-brand:nth-of-type(1) {
+  grid-area: br1;
+  justify-self: center;
+}
+.body-main-brand:nth-of-type(2) {
+  grid-area: br2;
+  justify-self: center;
+}
+.body-main-brand:nth-of-type(3) {
+  grid-area: br3;
+  justify-self: center;
+}
+.body-main-brand:nth-of-type(4) {
+  grid-area: br4;
+  justify-self: center;
 }
 
 @media screen and (min-width: 1440px) {
@@ -171,7 +232,7 @@ html {
     background-color: white;
     padding: 1.3em;
     border-radius: 15px;
-    box-shadow: 7px 10px 10px 10px hsl(0deg, 0%, 41%);
+    box-shadow: 5px 5px 50px 1px hsl(0deg, 0%, 41%);
   }
   .body-header-nav-feature-subnav-wrap, .body-header-nav-company-subnav-wrap {
     position: absolute;

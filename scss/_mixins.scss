@@ -57,19 +57,16 @@
 
 }
 @mixin button-style($element: &, $color: var.$medium-gray, $border: "none", $background: transparent) {
-    $string: $element;
-    @if $element != & {$string: unquote($element);}
-
-    #{$string} {
+    @if $element != & {$element: unquote($element);}
+    #{$element} {
         color: $color;
         background-color: $background;
-        border-radius: 9px;
+        border-radius: 12px;
         padding: 0.5em 1em;
-        @include text-style(var.$medium-gray, var.$step--2, 500);
+        @include text-style($color, var.$step--2, 500);
         
         @if $border != "none" {
             border: 1px $color solid;
-
         }
         @else {
             border: none;
@@ -78,6 +75,7 @@
             cursor: pointer;
             border-color: var.$almost-black;
             color: var.$almost-black;
+            background-color: transparent;
         }
     }
 }
