@@ -21,50 +21,59 @@
 <body class="body">
   <header class="body-header">
     <img src="./images/logo.svg" alt="Logo Icon" class="body-header-logo">
-    <nav class="body-header-nav">
-      <a href="#" class="body-header-nav-feature">
-        <div class="body-header-nav-feature-name">        <p>Features</p>
-            <svg width="10" height="6" viewbox="0 0 10 6" class="body-header-nav-feature-name-svg">
+    <img src="./images/icon-menu.svg" alt="Nav icon" class="body-header-menu">
+    <div class="body-header-nav-wrap">
+      <nav class="body-header-nav">
+        <a href="#" class="body-header-nav-feature">
+          <div class="body-header-nav-feature-text">
+            <p>Features</p>
+          <svg width="10" height="6" viewbox="0 0 10 6">
               <path stroke="#686868" stroke-width="2.3" fill="white" d="m1 5 4-4 4 4"/>
-          </svg></div>
-        <ul class="body-header-nav-feature-subnav hide">
-          <li onclick="location.href='#'" class="body-header-nav-feature-subnav-li body-header-nav-feature-subnav-plan">
-            <img src="./images/icon-planning.svg" alt="Planning Icon">
-            Planning
-          </li>
-          <li onclick="location.href='#'" class="body-header-nav-feature-subnav-li body-header-nav-feature-subnav-calendar">
-            <img src="./images/icon-reminders.svg" alt="Reminder Icon">
-            Reminders
-          </li>
-          <li onclick="location.href='#'" class="body-header-nav-feature-subnav-li body-header-nav-feature-subnav-calendar">
-            <img src="./images/icon-calendar.svg" alt="Calendar Icon">
-            Calendar
-          </li>
-          <li onclick="location.href='#'" class="body-header-nav-feature-subnav-li body-header-nav-feature-subnav-todo">
-            <img src="./images/icon-todo.svg" alt="Todo icon">
-            Todo List
-          </li>
-        </ul>
-      </a>
-      <a href="#" class="body-header-nav-company">
-        <div class="body-header-nav-company-name">
-          <p>Company</p>
-          <svg width="10" height="6" viewbox="0 0 10 6" class="body-header-nav-company-name-svg">
-            <path stroke="#686868" stroke-width="2.3" fill="white" d="m1 5 4-4 4 4"/>
           </svg>
+          </div>
+          <!-- <div class="body-header-nav-feature-subnav-wrap"> -->
+            <ul class="body-header-nav-feature-subnav hide">
+              <li onclick="location.href='#'" class="body-header-nav-feature-subnav-li body-header-nav-feature-subnav-plan">
+                <img src="./images/icon-planning.svg" alt="Planning Icon">
+                Planning
+              </li>
+              <li onclick="location.href='#'" class="body-header-nav-feature-subnav-li body-header-nav-feature-subnav-calendar">
+                <img src="./images/icon-reminders.svg" alt="Reminder Icon">
+                Reminders
+              </li>
+              <li onclick="location.href='#'" class="body-header-nav-feature-subnav-li body-header-nav-feature-subnav-calendar">
+                <img src="./images/icon-calendar.svg" alt="Calendar Icon">
+                Calendar
+              </li>
+              <li onclick="location.href='#'" class="body-header-nav-feature-subnav-li body-header-nav-feature-subnav-todo">
+                <img src="./images/icon-todo.svg" alt="Todo icon">
+                Todo List
+              </li>
+            </ul>
+          <!-- </div> -->
+        </a>
+        <a href="#" class="body-header-nav-company">
+          <div class="body-header-nav-company-text">
+            <p>Company</p>
+            <svg width="10" height="6" viewbox="0 0 10 6" class="body-header-nav-company-svg">
+              <path stroke="#686868" stroke-width="2.3" fill="white" d="m1 5 4-4 4 4"/>
+            </svg>
+          </div>
+          <!-- <div class="body-header-nav-company-subnav-wrap"> -->
+            <ul class="body-header-nav-company-subnav hide">
+              <li onclick="location.href='#'" class="body-header-nav-company-subnav-li body-header-nav-company-subnav-history">History</li>
+              <li onclick="location.href='#'" class="body-header-nav-company-subnav-li body-header-nav-company-subnav-team">Our Team</li>
+              <li onclick="location.href='#'" class="body-header-nav-company-subnav-li body-header-nav-company-subnav-blog">Blog</li>
+            </ul>
+          <!-- </div> -->
+        </a>
+        <a href="#" class="body-header-nav-element">Careers</a>
+        <a href="#" class="body-header-nav-element">About</a>
+        <div class="body-header-nav-buttons">
+          <button class="body-header-nav-buttons-login">Login</button>
+          <button class="body-header-nav-buttons-register">Register</button>
         </div>
-        <ul class="body-header-nav-company-subnav hide">
-          <li onclick="location.href='#'" class="body-header-nav-company-subnav-li body-header-nav-company-subnav-history">History</li>
-          <li onclick="location.href='#'" class="body-header-nav-company-subnav-li body-header-nav-company-subnav-team">Our Team</li>
-          <li onclick="location.href='#'" class="body-header-nav-company-subnav-li body-header-nav-company-subnav-blog">Blog</li>
-        </ul>
-      </a>
-      <a href="#" class="body-header-nav-element">Careers</a>
-      <a href="#" class="body-header-nav-element">About</a>
-    </nav>
-    <div class="body-header-buttons">
-      <button class="body-header-buttons-login">Login</button>
-      <button class="body-header-buttons-register">Register</button>
+      </nav>
     </div>
   </header>
 

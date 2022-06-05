@@ -10,67 +10,116 @@ html {
 }
 .body {
     background-color: var.$almost-white;
+    // position: relative;
     &-header {
-        @include mi.flex(2em);
-        align-items: center;
+        @include mi.flex;
+        justify-content: space-between;
         padding: 2em 1em;
+        &-logo {
+            width: clamp(5em, 8%, 9em);
+            object-fit: contain;
+        }
+        &-menu {
+            position: absolute;
+            right: 1em;
+            object-fit: contain;
+            width: clamp(40px, 5%, 53px);
+            z-index: 1;
+
+        }
         &-nav {
-            @include mi.flex(1em);
-            &-element, &-feature, &-company {
-                @include mi.text-style(var.$medium-gray, var.$step--2,500);
+            width: 70%;
+            overflow: scroll;
+            // wrapper of nav
+            &-wrap {
+                // wrapper of nav
+                position: absolute;
+                top: 0;
+                right: 0;
+                left: 0;
+                bottom: 0;
+                
+                @include mi.flex;
+                justify-content: flex-end;
+                display: none;
+                
+                background-color: rgba(24, 21, 52, 0.5);
+                // opacity: 0;
+                // transition: opacity 2s ease-in-out;
+                &.open {
+                    display: flex;
+                    // opacity: 1;
+                }   
             }
-            &-element {
-                @include mi.hover-state(var.$almost-black);
+
+            @include mi.flex-col(1em);
+            padding: 5em 0;
+            // transform: scale(0);
+            // transition: transform 2s ease-in-out;
+
+            background-color: var.$almost-white;
+            @include mi.hover-state(var.$almost-black, "&-element");
+            &-element, &-feature, &-company, &-buttons {
+                padding: 1em 3em;
+                text-decoration: none;
+                @include mi.text-style(var.$medium-gray, var.$step--2, 500);
             }
             &-feature, &-company {
-                @include mi.flex-col(0.1em);
-                @include mi.hover-state(var.$almost-black, div p, div svg path);
-                // position: relative;
-
-                &-svg {
-                    // center
-                    margin-top: auto;
-                    margin-bottom: auto;
-                    
-                    transform: scale(1.1);
-                    overflow: visible;
+                @include mi.flex-col(1em);
+                &-text {
+                    @include mi.flex(0.5em);
+                    align-items: center;
                 }
+
                 &-subnav {
-                    // position: absolute;
-
-                    &[class*="feature"] {
-                        right: 0;
-                        left: -6em;
-                    }
-                    &[class*="company"] {
-                        left: 0;
-                        right: -2em;
-                    }
-
-                    @include mi.flex-col(1em);
-                    flex-direction: column-reverse;
-
-                    padding: 1.2em 1.4em;
-                    font-size: var.$step--3;
-
-                    background-color: white;
-                    box-shadow: 4px 5px 13px 2px var.$medium-gray;
-                    border-radius: 15px;
                     &-li {
-                        
+                        padding: 2em;
                         list-style-type: none;
-                    }
 
+                        @include mi.hover-state(var.$almost-black);
+                        & img {
+                            padding-right: 1em;
+                        }
+                    }
                     &.hide {
                         display: none;
                     }
                 }
+                @include mi.hover-state(var.$almost-black, p, svg path);
             }
+
+            &-buttons {
+                @include mi.flex-col(2em);
+                @include mi.button-style("&-login");
+                @include mi.button-style("&-register", var.$medium-gray, "yes");
+            }
+            // &-wrap.open & {
+            //     transform: scale(0.7);
+            // }
         }
-        &-buttons {
-            margin-left: auto;
-            @include mi.button-style("&-login");
-            @include mi.button-style("&-register", var.$almost-black, transparent, "yes"); 
+    }
+}
+@media screen and (min-width: 1440px){
+    .body {
+        &-header {
+            position: relative;
+            &-menu {
+                display: none;
+            }
+            &-nav {
+                &-wrap {
+                    // position: relative;
+                    top: 0;
+                    left: 0;
+                    bottom: 0;
+                    display: flex;
+                }
+                flex-direction: row;
+                padding: 2em 0;
+                &-element, &-feature, &-company, &-buttons {
+                    // padding: 0;
+                }
+            }
         }
     }
 }

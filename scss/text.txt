@@ -1,0 +1,139 @@
+.body {
+    background-color: var.$almost-white;
+    &-header {
+        @include mi.flex(2em);
+        align-items: center;
+        padding: 2em 1em;
+        // position: relative;
+        &-logo {
+            width: 8%;
+            max-width: 160px;
+            max-height: 51px;
+        }
+        &-menu {
+            max-height: 1.3em;
+            margin-left: auto;
+        }
+        &-nav {
+            @include mi.flex(1.3em);
+            align-items: center;
+            flex-direction: column;
+
+            &-element, &-feature, &-company {
+                @include mi.text-style(var.$medium-gray, var.$step--3, 500);
+            }
+            &-element {
+                @include mi.hover-state(var.$almost-black);
+            }
+            &-feature, &-company {
+                @include mi.flex(0.1em);
+                @include mi.hover-state(var.$almost-black, p, svg path);
+                flex-wrap: wrap;
+                &-svg {
+                    // center
+                    margin-top: auto;
+                    margin-bottom: auto;
+                    
+                    transform: scale(1.1);
+                    overflow: visible;
+                }
+                &-subnav {
+                    // wrapper not children
+                    &-wrap {
+                        // width: 100%;
+                        // position: relative;
+                        // top: 1em;
+                        // &[class*="feature"] {
+                        //     right: 0;
+                        //     left: -6em;
+                        // }
+                        // &[class*="company"] {
+                        //     left: 0;
+                        //     right: -2em;
+                        // }
+                        // padding-top: 1em;
+                    }
+                    
+                    @include mi.flex-col(1em);
+                    flex-direction: column-reverse;
+                    padding: 1.3em 1.4em;
+
+                    font-size: var.$step--4;
+                    
+                    background-color: white;
+                    box-shadow: 4px 5px 13px 2px var.$medium-gray;
+                    border-radius: 15px;
+                    overflow: hidden;
+                    &-li {
+                        list-style-type: none;
+                        &:hover {
+                            color: var.$almost-black;
+                            text-shadow: 6px 5px 2px hsl(0, 1%, 69%);
+                        }
+                    }
+
+                    &.hide {
+                        display: none;
+                    }
+                }
+            }
+            &-buttons {
+                @include mi.flex-col(1em);
+                @include mi.button-style("&-login");
+                @include mi.button-style("&-register", var.$medium-gray, "yes"); 
+    
+            }
+        }
+    }
+}
+@media screen and (min-width: 1440px){
+    .body {
+        &-header {
+            &-logo {
+                max-width: 110px;
+            }
+            &-menu {
+                display: none;
+            }
+            &-nav {
+                @include mi.flex(1.3em);
+                align-items: center;
+                flex-grow: 1;
+                // position: relative;
+                &-feature, &-company {
+                    @include mi.flex(0.1em);
+                    position: relative;
+                    &-subnav {
+                        // wrapper not children
+                        &-wrap {
+                            position: absolute;
+                            top: 1em;
+                            &[class*="feature"] {
+                                right: 0;
+                                left: -6em;
+                            }
+                            &[class*="company"] {
+                                left: 0;
+                                right: -2em;
+                            }
+                            padding-top: 1em;
+                        }
+                        
+                        @include mi.flex-col(1em);
+                        flex-direction: column-reverse;
+                    }
+                }
+                &-buttons {
+                    flex-direction: row;
+                    margin-left: auto;
+                }
+            }
+        }
+    }
+}
+
+<svg width="32" height="18" xmlns="http://www.w3.org/2000/svg">
+    <g fill="#151515" fill-rule="evenodd">
+        <path d="M0 0h32v2H0zM0 8h32v2H0zM0 16h32v2H0z"/>
+    </g>
+</svg>

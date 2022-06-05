@@ -58,43 +58,16 @@ Users should be able to:
     transform-origin: center;
   }
   ```
-Normal Grid:
-
-```css
-.proud-of-this-css {
-  display: grid;
-  grid-template-areas:
-  ". b1 ."
-  "b2 b1 b3"
-  "b2 b4 b3"
-  ". b4 .";
-}
-.box-b1 {
-  grid-area: b1;
-}
-.box-b2 {
-  grid-area: b2;
-}
-.box-b3 {
-  grid-area: b3;
-}
-.box-b4 {
-  grid-area: b4;
-}
-```
-However, this code still makes the cards have different height and width. To make them have same size:
-```css
-.proud-of-this-css {
-  display: grid;
-  grid-template:
-  ". b1 ." 1fr
-  "b2 b1 b3" 1fr
-  "b2 b4 b3" 1fr
-  ". b4 ." 1fr /
-  1fr 1fr 1fr;
-}
-```
-The first 4 "1fr" represents the same size in the rows. The last 3 "1fr" represents same width in the columns.
+- Learn how to use clamp:
+ + When you want to specify both max and min value -> use clamp
+ ```css
+  .element {
+    /* max-width: 55px;
+    min-width: 40px;
+    width: 5%; */
+    width: clamp(40px, 5%, 55px);
+  }
+ ```
 ### Continued development
 
 I think I will make 4 cards spinnable if I have time.

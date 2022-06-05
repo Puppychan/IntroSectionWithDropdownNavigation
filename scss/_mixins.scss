@@ -5,6 +5,11 @@
     flex-direction: row;
     gap: $gap;
 }
+@mixin flex-center($gap: 0) {
+    @include flex($gap);
+    justify-content: center;
+    align-items: center;
+}
 @mixin flex-col($gap: 0) {
     display: flex;
     flex-direction: column;
@@ -21,16 +26,26 @@
     // first child is main element
     // second child is icon in hover element
     @if $first-child != & {
-        &:hover #{$first-child} {
-            color: $color;
+        // if choosing all children
+        $first-child: unquote($first-child);
+        @if str-index($first-child, "&") {
+            #{$first-child}:hover {
+                color: $color;
+            }
         }
-        @if $second-child != & {
-            &:hover #{$second-child} {
-                stroke: $color;
-        
-                transition: transform 200ms;
-                transform: rotate(-180deg);
-                transform-origin: center;
+        // if only choose some children
+        @else {
+            &:hover #{$first-child} {
+                color: $color;
+            }
+            @if $second-child != & {
+                &:hover #{$second-child} {
+                    stroke: $color;
+            
+                    transition: transform 200ms;
+                    transform: rotate(-180deg);
+                    transform-origin: center;
+                }
             }
         }
     }
@@ -41,25 +56,28 @@
     }
 
 }
-@mixin button-style($element: &, $color: var.$almost-black, $background: transparent, $border: "none") {
+@mixin button-style($element: &, $color: var.$medium-gray, $border: "none", $background: transparent) {
     $string: $element;
     @if $element != & {$string: unquote($element);}
 
     #{$string} {
         color: $color;
         background-color: $background;
-        // border: none;
-        border: 2px var.$almost-black solid;
-        @if $border == "none" {
-            border-color: transparent;
+        border-radius: 9px;
+        padding: 0.5em 1em;
+        @include text-style(var.$medium-gray, var.$step--2, 500);
+        
+        @if $border != "none" {
+            border: 1px $color solid;
+
+        }
+        @else {
+            border: none;
         }
         &:hover {
             cursor: pointer;
-            background-color: var.$medium-gray;
-            color: var.$almost-white;
-            border: var.$medium-gray;
+            border-color: var.$almost-black;
+            color: var.$almost-black;
         }
-        border-radius: 15px;
-        padding: 2em;
     }
 }

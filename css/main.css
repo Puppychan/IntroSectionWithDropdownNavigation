@@ -14,98 +14,145 @@ html {
 .body-header {
   display: flex;
   flex-direction: row;
-  gap: 2em;
-  align-items: center;
+  gap: 0;
+  justify-content: space-between;
   padding: 2em 1em;
 }
+.body-header-logo {
+  width: clamp(5em, 8%, 9em);
+  object-fit: contain;
+}
+.body-header-menu {
+  position: absolute;
+  right: 1em;
+  object-fit: contain;
+  width: clamp(40px, 5%, 53px);
+  z-index: 1;
+}
 .body-header-nav {
+  width: 70%;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 5em 0;
+  background-color: hsl(0deg, 0%, 98%);
+}
+.body-header-nav-wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
   display: flex;
   flex-direction: row;
-  gap: 1em;
+  gap: 0;
+  justify-content: flex-end;
+  display: none;
+  background-color: rgba(24, 21, 52, 0.5);
 }
-.body-header-nav-element, .body-header-nav-feature, .body-header-nav-company {
+.body-header-nav-wrap.open {
+  display: flex;
+}
+.body-header-nav-element:hover {
+  color: hsl(0deg, 0%, 8%);
+}
+.body-header-nav-element, .body-header-nav-feature, .body-header-nav-company, .body-header-nav-buttons {
+  padding: 1em 3em;
+  text-decoration: none;
   color: hsl(0deg, 0%, 41%);
   font-size: clamp(0.91rem, 0.75rem + 0.68vw, 1.6rem);
   font-weight: 500;
   text-decoration: none;
 }
-.body-header-nav-element:hover {
-  color: hsl(0deg, 0%, 8%);
-}
 .body-header-nav-feature, .body-header-nav-company {
   display: flex;
   flex-direction: column;
-  gap: 0.1em;
+  gap: 1em;
 }
-.body-header-nav-feature:hover div p, .body-header-nav-company:hover div p {
+.body-header-nav-feature-text, .body-header-nav-company-text {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+  align-items: center;
+}
+.body-header-nav-feature-subnav-li, .body-header-nav-company-subnav-li {
+  padding: 2em;
+  list-style-type: none;
+}
+.body-header-nav-feature-subnav-li:hover, .body-header-nav-company-subnav-li:hover {
   color: hsl(0deg, 0%, 8%);
 }
-.body-header-nav-feature:hover div svg path, .body-header-nav-company:hover div svg path {
+.body-header-nav-feature-subnav-li img, .body-header-nav-company-subnav-li img {
+  padding-right: 1em;
+}
+.body-header-nav-feature-subnav.hide, .body-header-nav-company-subnav.hide {
+  display: none;
+}
+.body-header-nav-feature:hover p, .body-header-nav-company:hover p {
+  color: hsl(0deg, 0%, 8%);
+}
+.body-header-nav-feature:hover svg path, .body-header-nav-company:hover svg path {
   stroke: hsl(0deg, 0%, 8%);
   transition: transform 200ms;
   transform: rotate(-180deg);
   transform-origin: center;
 }
-.body-header-nav-feature-svg, .body-header-nav-company-svg {
-  margin-top: auto;
-  margin-bottom: auto;
-  transform: scale(1.1);
-  overflow: visible;
-}
-.body-header-nav-feature-subnav, .body-header-nav-company-subnav {
+.body-header-nav-buttons {
   display: flex;
   flex-direction: column;
-  gap: 1em;
-  flex-direction: column-reverse;
-  padding: 1.2em 1.4em;
-  font-size: clamp(0.76rem, 0.64rem + 0.51vw, 1.28rem);
-  background-color: white;
-  box-shadow: 4px 5px 13px 2px hsl(0deg, 0%, 41%);
-  border-radius: 15px;
+  gap: 2em;
 }
-.body-header-nav-feature-subnav[class*=feature], .body-header-nav-company-subnav[class*=feature] {
-  right: 0;
-  left: -6em;
-}
-.body-header-nav-feature-subnav[class*=company], .body-header-nav-company-subnav[class*=company] {
-  left: 0;
-  right: -2em;
-}
-.body-header-nav-feature-subnav-li, .body-header-nav-company-subnav-li {
-  list-style-type: none;
-}
-.body-header-nav-feature-subnav.hide, .body-header-nav-company-subnav.hide {
-  display: none;
-}
-.body-header-buttons {
-  margin-left: auto;
-}
-.body-header-buttons-login {
-  color: hsl(0deg, 0%, 8%);
+.body-header-nav-buttons-login {
+  color: hsl(0deg, 0%, 41%);
   background-color: transparent;
-  border: 2px hsl(0deg, 0%, 8%) solid;
-  border-color: transparent;
-  border-radius: 15px;
-  padding: 2em;
+  border-radius: 9px;
+  padding: 0.5em 1em;
+  color: hsl(0deg, 0%, 41%);
+  font-size: clamp(0.91rem, 0.75rem + 0.68vw, 1.6rem);
+  font-weight: 500;
+  text-decoration: none;
+  border: none;
 }
-.body-header-buttons-login:hover {
+.body-header-nav-buttons-login:hover {
   cursor: pointer;
-  background-color: hsl(0deg, 0%, 41%);
-  color: hsl(0deg, 0%, 98%);
-  border: hsl(0deg, 0%, 41%);
-}
-.body-header-buttons-register {
+  border-color: hsl(0deg, 0%, 8%);
   color: hsl(0deg, 0%, 8%);
-  background-color: transparent;
-  border: 2px hsl(0deg, 0%, 8%) solid;
-  border-radius: 15px;
-  padding: 2em;
 }
-.body-header-buttons-register:hover {
+.body-header-nav-buttons-register {
+  color: hsl(0deg, 0%, 41%);
+  background-color: transparent;
+  border-radius: 9px;
+  padding: 0.5em 1em;
+  color: hsl(0deg, 0%, 41%);
+  font-size: clamp(0.91rem, 0.75rem + 0.68vw, 1.6rem);
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px hsl(0deg, 0%, 41%) solid;
+}
+.body-header-nav-buttons-register:hover {
   cursor: pointer;
-  background-color: hsl(0deg, 0%, 41%);
-  color: hsl(0deg, 0%, 98%);
-  border: hsl(0deg, 0%, 41%);
+  border-color: hsl(0deg, 0%, 8%);
+  color: hsl(0deg, 0%, 8%);
+}
+
+@media screen and (min-width: 1440px) {
+  .body-header {
+    position: relative;
+  }
+  .body-header-menu {
+    display: none;
+  }
+  .body-header-nav {
+    flex-direction: row;
+    padding: 2em 0;
+  }
+  .body-header-nav-wrap {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
